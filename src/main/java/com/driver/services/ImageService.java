@@ -37,7 +37,16 @@ public class ImageService {
     }
 
     public void deleteImage(Image image){
-        imageRepository2.deleteImage(image);
+
+        Blog blog = image.getBlog();
+
+        List<Image> list = blog.getImageList();
+
+        list.remove(image);
+
+        blog.setImageList(list);
+
+        imageRepository2.delete(image);
 
     }
 
@@ -45,13 +54,10 @@ public class ImageService {
         return imageRepository2.findById(id).get();
     }
 
-    public int countImagesInScreen(int image, String screenDimensions) {
+    public int countImagesInScreen(Image image, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         //In case the image is null, return 0
         return 0;
     }
 
-    public void save(Image image) {
-
-    }
 }

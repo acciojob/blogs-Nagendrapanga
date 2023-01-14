@@ -19,7 +19,7 @@ public class BlogService {
     BlogRepository blogRepository1;
 
     @Autowired
-    ImageService imageRepository;
+    ImageService imageService;
 
     @Autowired
     UserRepository userRepository1;
@@ -62,8 +62,8 @@ public class BlogService {
         imageList.add(image);
         image.setBlog(blog);
         blog.setImageList(imageList);
-       blogRepository1.save(blog);
-        imageRepository.save(image);
+        blogRepository1.save(blog);
+        imageService.save(image);
 
     }
 
