@@ -63,7 +63,7 @@ public class BlogService {
         image.setBlog(blog);
         blog.setImageList(imageList);
         blogRepository1.save(blog);
-        imageService.save(image);
+        //imageService.save(image);
 
     }
 
